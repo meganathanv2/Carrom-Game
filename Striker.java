@@ -1,9 +1,15 @@
 class Striker {
-    int power;
-    public Striker(int power) {
+    private int power;
+
+    public void setPower(int power) {
         this.power = power;
     }
-    void hit() {
+
+    public int getPower() {
+        return power;
+    }
+
+    public void hit() {
         System.out.println("Striker hit with power " + power);
     }
 }

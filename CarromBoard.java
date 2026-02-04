@@ -1,33 +1,34 @@
-
 class CarromBoard {
 
-    int size;
-    String material;
-    String color;
+    private int size;
+    private String material;
+    private String color;
 
-    CarromBoard(int size, String material, String color) {
+    public CarromBoard(int size, String material, String color) {
         this.size = size;
         this.material = material;
         this.color = color;
     }
 
-    void startGame() {
-        System.out.println("Carrom game started on" + material + " board");
+    public void startGame() {
+        System.out.println("Carrom game started on " + material + " board");
     }
 
-    void pocketCoin(Player player, Coin coin) {
-        if (!coin.pocketed) {
-            coin.pocket();
+   public boolean pocketCoin(Player player, Coin coin) {
 
-            if (coin.color.equals("Red")) {
-                player.addScore(50);
-            } else {
-                player.addScore(10);
-            }
-        }
+    if (coin.getColor().equals("Red")) {
+        player.addScore(50);
+    } else {
+        player.addScore(10);
     }
 
-    void strikerFoul(Player player) {
-        player.foul();
-    }
+    return true; 
+}
+
+
+   public boolean strikerFoul(Player player) {
+    player.foul();
+    return false; 
+}
+
 }

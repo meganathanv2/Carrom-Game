@@ -1,19 +1,27 @@
 class Player {
-    String name;
-    int score;
+    private String name;
+    private int score;
 
-    Player(String name) {
+    public Player(String name) {
         this.name = name;
         this.score = 0;
     }
 
-    void addScore(int points) {
+    public String getName() {
+        return name;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void addScore(int points) {
         score += points;
         System.out.println(name + " score: " + score);
     }
 
-    void foul() {
+    public void foul() {
         score -= 5;
-        System.out.println(name + " committed a foul -5");
+        System.out.println(name + " committed a foul (-5)");
     }
 }

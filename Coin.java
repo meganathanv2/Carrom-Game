@@ -1,14 +1,17 @@
 class Coin {
-    String color;    
-    boolean pocketed;
+    private String color;
+    
 
-    Coin(String color) {
+    public Coin(String color) {
         this.color = color;
-        this.pocketed = false;
+     
     }
 
-    void pocket() {
-        pocketed = true;
+    public String getColor() {
+        return color;
+    }
+
+    public void pocket() {
         System.out.println(color + " coin pocketed");
     }
 }
