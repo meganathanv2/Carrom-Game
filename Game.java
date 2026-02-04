@@ -21,6 +21,7 @@ public class Game {
 
         int maxTurns = 10;
         int turn = 1;
+       
 
         Random random = new Random();
 
@@ -46,11 +47,19 @@ public class Game {
                     coinPocketed = board.pocketCoin(currentPlayer, white);
                     break;
                 case 3:
+                    if(board.QueenCount==0)
                     coinPocketed = board.pocketCoin(currentPlayer, queen);
                     break;
                 default:
                     board.strikerFoul(currentPlayer);
                     break;
+            }
+          
+            if (!coinPocketed && currentPlayer.hasQueenPocketed()) {
+                System.out.println("Queen not covered! Penalty applied.");
+                currentPlayer.addScore(-50); 
+                currentPlayer.foul();
+                currentPlayer.setQueenPocketed(false);
             }
 
             if (!coinPocketed) {
