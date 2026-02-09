@@ -1,10 +1,9 @@
 package com.mega.game;
 
-import com.mega.player.Striker;
 import com.mega.board.CarromBoard;
-import com.mega.player.Player;
 import com.mega.coins.Coin;
-
+import com.mega.player.Player;
+import com.mega.player.Striker;
 import java.util.Random;
 
 public class Game {
