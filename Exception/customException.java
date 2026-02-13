@@ -10,7 +10,7 @@ class InvalidEvenNumber extends RuntimeException{
     }
 }
 
-public class customException{
+public class CustomException{
     public static void main(String[] args) {
         try {
             checkAge(10);

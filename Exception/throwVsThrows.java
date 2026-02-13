@@ -1,4 +1,4 @@
-public class throwVsThrows{
+public class ThrowVsThrows{
     public static void main(String[] args) {
         try {
             validNumber(15);
