@@ -6,6 +6,7 @@ import java.util.List;
 public class Stream {
 
     public static void main(String[] args) {
+        //stream use only once we cannat perform next time
         List<String> names = Arrays.asList("adam", "Eva", "romeo");
         List<String> fliterName =names.stream().filter((name)->name.startsWith("E")).toList();
         System.out.println(fliterName);
@@ -13,5 +14,6 @@ public class Stream {
          List<String> names2 = Arrays.asList("adam", "Eva", "romeo");
          List<String> map=names2.stream().map(String :: toUpperCase).toList();
          System.out.println(map);
+         
     }
 }

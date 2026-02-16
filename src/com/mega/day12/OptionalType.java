@@ -1,4 +1,6 @@
 package com.mega.day12;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 public class OptionalType {
@@ -17,6 +19,11 @@ public class OptionalType {
 
         Optional<String> player2=findPlayer(false);
         System.out.println(player2.orElse("No player"));
+
+        List<String> li=Arrays.asList("Mega","vijay","leo");
+        Optional<String> res=li.stream().filter(n->n.startsWith("M")).findFirst();
+         res.ifPresent(System.out::println);
+ 
 
     }
 }
