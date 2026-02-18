@@ -6,9 +6,16 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 public @interface Important {
 }
+// @Retention(RetentionPolicy.RUNTIME)
+// @Target(ElementType.FIELD)
+// @interface CopiedField{
+//     String newValue() default "";
+// }
+
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-@interface CopiedField{
-    String newValue() default "";
+@Target(ElementType.TYPE)
+@interface MyClassInfo{
+    String author() default "";
+    int version() default 0;
 }
 
