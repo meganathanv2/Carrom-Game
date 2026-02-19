@@ -6,7 +6,7 @@ public class StudentObjToEmployeeObj {
 
     public static void main(String[] args) throws Exception {
 
-        StudentClass s = new StudentClass("Mega", 101, 21, "Salem", 89.5);
+        StudentClass s = new StudentClass("Mega", 101, 21, "Salem");
         EmployeeClass e = new EmployeeClass();
 
         ObjectConverter.copyObject(s, e);
@@ -14,6 +14,7 @@ public class StudentObjToEmployeeObj {
         printObject(e);
         System.out.println("-- Student Object");
         printObject(s);
+        e.displayEmployee();
     }
 
     private static void printObject(Object obj) throws Exception {

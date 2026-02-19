@@ -1,6 +1,6 @@
 package com.mega.day12.Reflection;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.*;
 
 public class ObjectConverter {
 
@@ -10,19 +10,42 @@ public class ObjectConverter {
 
         for (Field f : fields) {
 
-            f.setAccessible(true);
-            Field targetField = target.getClass().getDeclaredField(f.getName());
-            targetField.setAccessible(true);
+            String fieldName = f.getName();
+            String getterName = "get" + capitalize(fieldName);
+            String setterName = "set" + capitalize(fieldName);
 
-            targetField.set(target, f.get(source));
+            Object value = null;
+            try {
+                Method getterMethod = source.getClass().getMethod(getterName);
+                value = getterMethod.invoke(source);
+            } catch (NoSuchMethodException e) {
+                f.setAccessible(true);
+                value = f.get(source);
+            }
+
+            try {
+                Method setterMethod = target.getClass().getMethod(setterName, f.getType());
+                setterMethod.invoke(target, value);
+            } catch (NoSuchMethodException ignored) {
+            }
 
             if (f.isAnnotationPresent(CopiedField.class)) {
 
                 CopiedField annotation = f.getAnnotation(CopiedField.class);
                 String newVal = annotation.newValue();
-               
+
+                try {
+                    Method sourceSetter = source.getClass().getMethod(setterName, f.getType());
+                    sourceSetter.invoke(source, newVal);
+                } catch (NoSuchMethodException e) {
+                    f.setAccessible(true);
                     f.set(source, newVal);
+                }
             }
         }
+    }
+
+    private static String capitalize(String str) {
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 }

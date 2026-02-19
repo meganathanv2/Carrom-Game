@@ -7,21 +7,48 @@ public class StudentClass {
 
     private int age;
     private int id;
+    
 
     @CopiedField(newValue = "Chennai")
     private String city;
 
-    private double marks;
+   
 
-    public StudentClass(String name, int id, int age, String city, double marks) {
+    public StudentClass(String name, int id, int age, String city) {
         this.name = name;
         this.id = id;
         this.age = age;
         this.city = city;
-        this.marks = marks;
+       
     }
 
-    private void displayStudent() {
-        System.out.println(name + " " + id + " " + age + " " + city + " " + marks);
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void displayStudent() {
+        System.out.println(name + " " + id + " " + age + " " + city);
     }
 }

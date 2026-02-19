@@ -6,9 +6,29 @@ public class EmployeeClass {
     private int age;
     private int id;
     private String city;
-    private double marks;
+   
 
-    private void displayEmployee() {
-        System.out.println(name + " " + id + " " + age + " " + city + " " + marks);
+
+    public void setName(String name){
+        this.name=name;
+
+    }
+
+    public void setAge(int age){
+        this.age=age;
+    }
+
+    public void setId(int id){
+        this.id=id;
+    }
+    public void setCity(String city){
+        this.city=city;
+    }
+   
+    
+    
+
+    public void displayEmployee() {
+        System.out.println(name + " " + id + " " + age + " " + city);
     }
 }
