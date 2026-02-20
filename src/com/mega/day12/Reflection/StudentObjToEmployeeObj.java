@@ -10,10 +10,11 @@ public class StudentObjToEmployeeObj {
         EmployeeClass e = new EmployeeClass();
 
         ObjectConverter.copyObject(s, e);
-        System.out.println("-- Employee Object");
-        printObject(e);
+       
         System.out.println("-- Student Object");
         printObject(s);
+         System.out.println("-- Employee Object");
+        printObject(e);
         e.displayEmployee();
     }
 
